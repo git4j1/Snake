@@ -5,6 +5,7 @@
     <title>Snake Game</title>
 </head>
 <body>
+    <div id="score">0</div>
     <canvas id="gameCanvas" width="600" height="600"></canvas>
 
     <script>
@@ -23,6 +24,9 @@
             { x: 120, y: 150 },
             { x: 110, y: 150 }
         ]
+
+        // The user's score
+        let score = 0;
 
         // Horizontal velocity
         let dx = 10;
@@ -113,9 +117,11 @@
             const didEatFood = snake[0].x === foodX && snake[0].y === foodY;
             if (didEatFood) {
                 // Increase score
-                //score += 10;
+                score += 10;
+
                 // Display score on screen
-                //document.getElementById('score').innerHTML = score;
+                document.getElementById('score').innerHTML = score;
+
                 // Generate new food location
                 createFood();
             } else {
